@@ -1,0 +1,10 @@
+@media (min-width: 768px) {
+  img.info-image {
+    width: 50%;
+  }
+}
+
+.info-image {
+  width: 100%;
+}
+

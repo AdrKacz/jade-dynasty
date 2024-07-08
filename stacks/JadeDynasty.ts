@@ -21,6 +21,7 @@ export function JadeDynasty({ stack }: StackContext) {
             hostedZone
         } : undefined,
         path: "packages/frontend",
+        errorPage: "404.html",
         buildOutput: "dist",
         buildCommand: "npm run build",
         environment: { VITE_APP_API_URL: api.customDomainUrl || api.url }
