@@ -1,0 +1,8 @@
+.fit-cover {
+  object-fit: cover;
+}
+
+.ref-image {
+  object-fit: contain !important;
+}
+

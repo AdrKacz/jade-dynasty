@@ -1,0 +1,21 @@
+{
+    "name": "jade-dynasty",
+    "version": "0.0.0",
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "dev": "AWS_PROFILE=CrispyPancake sst dev",
+        "build": "sst build",
+        "deploy": "AWS_PROFILE=CrispyPancake sst deploy",
+        "deploy:noprofile": "sst deploy"
+    },
+    "devDependencies": {
+        "@tsconfig/node18": "^18.2.4",
+        "@tsconfig/node20": "^20.1.4",
+        "typescript": "5.3.3",
+        "aws-cdk-lib": "2.124.0",
+        "constructs": "10.3.0",
+        "sst": "^2.40.3"
+    }
+}
