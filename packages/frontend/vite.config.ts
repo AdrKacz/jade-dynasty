@@ -17,5 +17,5 @@ export default {
     // config options
     server: { host: true, port: 443 },
     build: { rollupOptions: { input: files } },
-    plugins: [mkcert({ hosts: ['local.jadedynastygua.com'] })]
+    plugins: [mkcert({ hosts: ['local.jadedynastygua.com'] })],
 }
