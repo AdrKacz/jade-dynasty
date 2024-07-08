@@ -44,13 +44,19 @@ for html_file in html_files:
             content = file.read()
             
         # Use regular expression to capture the existing unique key and replace script tag
-        content, replacements = re.subn(r'<script\s+src="(.*/)?smart-forms\.min\.js\?h=([^"]*)">',
-                                        r'<script src="\1smart-forms.mjs?h=\2" type="module">',
+        content, replacements = re.subn(r'<script\s+src="(.*)?smart-forms\.min\.js">',
+                                        r'<script src="\1smart-forms.mjs" type="module">',
                                         content)
-        
         if replacements > 0:
             print(f"Script tag replaced in: {html_file}")
+        with open(html_file, "w") as file:
+            file.write(content)
         
+        content, replacements = re.subn(r'<script\s+src="(.*)?bs-init\.js">',
+                                        r'<script src="\1bs-init.mjs" type="module">',
+                                        content)
+        if replacements > 0:
+            print(f"Script tag replaced in: {html_file}")
         with open(html_file, "w") as file:
             file.write(content)
         

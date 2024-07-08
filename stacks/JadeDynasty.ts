@@ -20,7 +20,7 @@ export function JadeDynasty({ stack }: StackContext) {
             domainAlias: `www.${domain}`,
             hostedZone
         } : undefined,
-        path: "packages/web",
+        path: "packages/frontend",
         buildOutput: "dist",
         buildCommand: "npm run build",
         environment: { VITE_APP_API_URL: api.customDomainUrl || api.url }
