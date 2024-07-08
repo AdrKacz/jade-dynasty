@@ -1,0 +1,16 @@
+{
+    "name": "@jade-dynasty/frontend",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "AWS_PROFILE=CrispyPancake sst bind vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "vite": "^5.2.8"
+    },
+    "dependencies": {
+        "vite-plugin-mkcert": "^1.17.4"
+    }
+}
