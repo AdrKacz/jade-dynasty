@@ -19,8 +19,6 @@ def move_file(old_file_path, new_file_path):
         print(f"File not found: {old_file_path}")
 move_file(os.path.join(folder_path, "assets/js/smart-forms.min.js"), os.path.join(folder_path, "assets/js/smart-forms.mjs"))
 move_file(os.path.join(folder_path, "assets/js/bs-init.js"), os.path.join(folder_path, "assets/js/bs-init.mjs"))
-move_file(os.path.join(folder_path, "assets/js/Simple-Slider-swiper-bundle.min.js"), os.path.join(folder_path, "assets/js/Simple-Slider-swiper-bundle.min.mjs"))
-move_file(os.path.join(folder_path, "assets/js/Simple-Slider.js"), os.path.join(folder_path, "assets/js/Simple-Slider.mjs"))
 move_file(os.path.join(folder_path, "sitemap.xml"), os.path.join(folder_path, "public/sitemap.xml"))
 
 # Task 2: Replace script tag in HTML files
@@ -61,13 +59,5 @@ for html_file in html_files:
     replace(html_file,
             r'<script\s+src="(.*)?bs-init\.js">',
             r'<script src="\1bs-init.mjs" type="module">')
-    
-    replace(html_file,
-            r'<script\s+src="(.*)?Simple-Slider\.js">',
-            r'<script src="\1Simple-Slider.mjs" type="module">')
-    
-    replace(html_file,
-            r'<script\s+src="(.*)?Simple-Slider-swiper-bundle\.min\.js">',
-            r'<script src="\1Simple-Slider-swiper-bundle.min.mjs" type="module">')
 
 print("Script execution completed.")
