@@ -19,6 +19,8 @@ def move_file(old_file_path, new_file_path):
         print(f"File not found: {old_file_path}")
 move_file(os.path.join(folder_path, "assets/js/smart-forms.min.js"), os.path.join(folder_path, "assets/js/smart-forms.mjs"))
 move_file(os.path.join(folder_path, "assets/js/bs-init.js"), os.path.join(folder_path, "assets/js/bs-init.mjs"))
+move_file(os.path.join(folder_path, "assets/js/Simple-Slider-swiper-bundle.min.js"), os.path.join(folder_path, "assets/js/Simple-Slider-swiper-bundle.min.mjs"))
+move_file(os.path.join(folder_path, "assets/js/Simple-Slider.js"), os.path.join(folder_path, "assets/js/Simple-Slider.mjs"))
 move_file(os.path.join(folder_path, "sitemap.xml"), os.path.join(folder_path, "public/sitemap.xml"))
 
 # Task 2: Replace script tag in HTML files
@@ -37,30 +39,35 @@ def find_html_files(directory):
 # Find HTML files in the specified directory and its subdirectories
 find_html_files(folder_path)
 
+def replace(file, pattern, replacement):
+    try:
+        with open(file, "r") as f:
+            content = f.read()
+        content, replacements = re.subn(pattern, replacement, content)
+        if replacements > 0:
+            print(f"Script tag replaced in: {file}")
+        with open(file, "w") as f:
+            f.write(content)
+    except FileNotFoundError:
+        print(f"File not found: {file}")
+    return content, replacements
+
 # Replace script tag in HTML files
 for html_file in html_files:
-    try:
-        with open(html_file, "r") as file:
-            content = file.read()
-            
-        # Use regular expression to capture the existing unique key and replace script tag
-        content, replacements = re.subn(r'<script\s+src="(.*)?smart-forms\.min\.js">',
-                                        r'<script src="\1smart-forms.mjs" type="module">',
-                                        content)
-        if replacements > 0:
-            print(f"Script tag replaced in: {html_file}")
-        with open(html_file, "w") as file:
-            file.write(content)
-        
-        content, replacements = re.subn(r'<script\s+src="(.*)?bs-init\.js">',
-                                        r'<script src="\1bs-init.mjs" type="module">',
-                                        content)
-        if replacements > 0:
-            print(f"Script tag replaced in: {html_file}")
-        with open(html_file, "w") as file:
-            file.write(content)
-        
-    except FileNotFoundError:
-        print(f"HTML file not found: {html_file}")
+    replace(html_file,
+            r'<script\s+src="(.*)?smart-forms\.min\.js">',
+            r'<script src="\1smart-forms.mjs" type="module">')
+
+    replace(html_file,
+            r'<script\s+src="(.*)?bs-init\.js">',
+            r'<script src="\1bs-init.mjs" type="module">')
+    
+    replace(html_file,
+            r'<script\s+src="(.*)?Simple-Slider\.js">',
+            r'<script src="\1Simple-Slider.mjs" type="module">')
+    
+    replace(html_file,
+            r'<script\s+src="(.*)?Simple-Slider-swiper-bundle\.min\.js">',
+            r'<script src="\1Simple-Slider-swiper-bundle.min.mjs" type="module">')
 
 print("Script execution completed.")

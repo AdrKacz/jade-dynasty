@@ -8,3 +8,19 @@
   width: 100%;
 }
 
+@media (min-width: 768px) {
+  .simple-slider {
+    display: none;
+  }
+}
+
+.testimonials-desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .testimonials-desktop {
+    display: block;
+  }
+}
+
