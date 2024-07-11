@@ -59,5 +59,15 @@ for html_file in html_files:
     replace(html_file,
             r'<script\s+src="(.*)?bs-init\.js">',
             r'<script src="\1bs-init.mjs" type="module">')
+    
+    # Remove .html extension from links
+    replace(html_file,
+            r'<a\s+([^>]*\s+)?href="([^"]+)\.html"([^>]*)?>',
+            r'<a \1href="\2"\3>')
+    
+    # Replace /index.html with /
+    replace(html_file,
+            r'<a\s+([^>]*\s+)?href="\/index"([^>]*)?>',
+            r'<a \1href="/"\2>')
 
 print("Script execution completed.")

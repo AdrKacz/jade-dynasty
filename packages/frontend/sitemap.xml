@@ -22,9 +22,18 @@
         <loc>/order.html</loc>
     </url>
     <url>
+        <loc>/privacy-policy.html</loc>
+    </url>
+    <url>
         <loc>/products.html</loc>
     </url>
     <url>
+        <loc>/refund-policy.html</loc>
+    </url>
+    <url>
         <loc>/success.html</loc>
+    </url>
+    <url>
+        <loc>/terms.html</loc>
     </url>
 </urlset>
